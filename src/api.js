@@ -12,7 +12,7 @@ export async function getAirDataByCity(city){
         async function data(){
             const {outputs} = await res.json()
             console.log(outputs[0])
-            const url = `http://api.airvisual.com/v2/city?city=${outputs[0].output}&state=${outputs[0].output}&country=Kyrgyzstan&key=${API_KEY}`;
+            const url = `https://api.airvisual.com/v2/city?city=${outputs[0].output}&state=${outputs[0].output}&country=Kyrgyzstan&key=${API_KEY}`;
             const quality = fetch(url)
             return quality
         }

@@ -1,13 +1,387 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Open+Sans:ital,wght@0,300;0,400;1,300;1,400&display=swap');
+*,
+::after,
+::before {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-size: 24px;
+  font-family: 'IBM Plex Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: khaki;
+}
+
+body,
+html {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+a:focus,
+a:hover {
+  text-decoration: none;
+  outline: 0;
+  outline-offset: 0;
+  color: #0038e3;
 }
+a,
+a:active,
+a:focus {
+  color: #A35671;
+}
+.btn,
+a,
+input,
+select,
+textarea {
+  transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+}
+
+p{
+  font-family: 'Open Sans', sans-serif;
+}
+
+dl,
+ol,
+ul {
+  list-style-position: outside;
+  margin-bottom: 25px;
+}
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0 0 25px 0;
+  padding: 0;
+  letter-spacing: -0.5px;
+  font-weight: inherit;
+}
+h1 {
+  font-size: 5rem;
+  line-height: 5rem;
+}
+h2 {
+  font-size: 3.9rem;
+  line-height: 2rem;
+}
+h3 {
+  font-size: 3.4rem;
+  line-height: 1.7rem;
+}
+h4 {
+  font-size: 2.85rem;
+  line-height: 1.5rem;
+}
+h5 {
+  font-size: 2.3rem;
+  line-height: 3rem;
+}
+h6 {
+  font-size: 1.8rem;
+  line-height: 2.5rem;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+.App{
+  height: 100vh;
+}
+
+header{
+  display: flex;
+  padding: 20px 30px;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+.App-header{
+  max-width: 1200px;
+}
+
+.App-logo{
+  margin-left: -50px;
+}
+
+ul{
+  padding-top: 5px;
+  display: inline-flex;
+  list-style-type: none;
+}
+li{
+  text-decoration: none;
+ 
+  font-weight: 600;
+}
+a{
+  text-decoration: none;
+}
+
+section{
+  display: flex;
+  justify-self: center;
+  align-self: center;
+}
+
+.search{
+  height: 100%;
+  padding: 100px 0;
+  margin: 0 auto;
+  align-items: flex-start;
+  justify-content: start;
+  text-align: center;
+  vertical-align: auto;
+}
+.search-label{
+  display: block;
+  
+  width: 612px;
+  
+}
+.search-label-text{
+  font-weight: 400;
+  line-height: 3rem;
+}
+
+.search input[type=text] {
+  margin-top: 20px;
+  width: 612px;
+  min-width: 300px;
+  padding: 20px 0;
+  border: 3.2px solid #090909;
+  border-radius: 24px;
+  background-color: transparent;
+  font-size: 54px;
+  text-align: center;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 300;
+}
+
+input[type=text]::placeholder  {
+  color: #09090965;
+}
+
+.search input[type=text]:hover{
+  border-color: #0038e3;
+}
+
+.search input[type=text]:focus{
+  border-radius: 12px;
+  border: 2px solid #0038e3;
+  color: #0038e3;
+  outline: none;
+}
+
+
+
+.body{
+  display: flex;
+  justify-self: flex-start;
+  align-self: flex-start;
+  color: black;
+  
+  align-items: flex-start;
+  justify-content: start;
+  margin: 25px auto;
+}
+
+
+.widget-container {
+  
+  width: 612px;
+  height: 362px;
+  display: block;
+  border: solid 3.2px black;
+  border-radius: 25px;
+/*   border: 5px solid #eceff1; */
+  margin: 0 auto;
+}
+
+/* Widget 4 Quarter Division here */
+
+.top-left {
+  height: 60%;
+  width: 50%;
+  /*   background-color:red; */
+  padding: 55px 0 0 70px;
+  display: inline-block;
+}
+
+.top-right {
+  height: 60%;
+  width: 50%;
+  /*   background-color: blue; */
+  float: right;
+  padding: 55px 0 0 0;
+}
+
+.bottom-left {
+  height: 40%;
+  width: 45%;
+  /*   background-color:orange; */
+  float: left;
+  margin: 0;
+  padding: 50px 0 0 50px;
+}
+
+.bottom-right {
+  height: 40%;
+  width: 55%;
+  /*   background-color: brown; */
+  float: right;
+  padding: 25px 0 0 60px;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Top-left Div CSS */
+
+#city {
+  margin-top: -8px;
+  font-weight: 900;
+  font-size: 42px;
+}
+
+#day {
+  font-weight: 700;
+  font-size: 25px;
+  margin-top: 18px;
+}
+
+#date {
+  font-weight: 500;
+  font-size: 20px;
+  margin-top: 25px;
+}
+
+#time {
+  font-weight: 400;
+  font-size: 18px;
+  margin-top: -20px;
+}
+
+#codepen-link {
+  font-weight: 400;
+  font-size: 12px;
+  margin-top: 20px;
+}
+
+.top-left > a {
+  text-decoration: none;
+  color: white;
+}
+
+.top-left > a:hover {
+  color: #b0bec5;
+}
+
+
+/* Top-Right Div CSS */
+
+#weather-status {
+  font-size: 18px;
+  font-weight: 300;
+  text-align: center;
+  margin: 0 auto;
+}
+
+
+
+
+/* Horizontal-Half-divider */
+
+.horizontal-half-divider {
+  width: 100%;
+  height: 3.2px;
+  margin-top: -5px;
+  background-color: black;
+}
+
+.vertical-half-divider {
+  width: 3.2px;
+  position: absolute;
+  height: 143px;
+  background-color: black;
+  float: right;
+  display: inline-block;
+  padding: 0;
+}
+
+
+/* Bottom-left CSS */
+
+#temperature,
+#celsius,
+#temp-divider,
+#fahrenheit {
+  display: inline;
+  vertical-align: sub;
+}
+
+#temperature {
+  font-size: 60px;
+  font-weight: 800;
+  margin-right: 5px;
+}
+
+#celsius {
+  margin-right: 10px;
+}
+
+#fahrenheit {
+  margin-right: 5px;
+  color: #b0bec5;
+}
+
+#celsius,
+#temp-divider,
+#fahrenheit {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+#celsius:hover,
+#fahrenheit:hover {
+  cursor: pointer;
+}
+
+
+
+
+
+
+/* Bottom-Right CSS */
+
+.other-details-key {
+  float: left;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.other-details-values {
+  float: left;
+  font-size: 16px;
+  font-weight: 400;
+  margin-left: 40px;
+}
+

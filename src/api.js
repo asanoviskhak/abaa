@@ -11,7 +11,7 @@ export async function getAirDataByCity(city){
     }).then((res)=>{
         async function data(){
             const {outputs} = await res.json()
-            console.log(outputs[0])
+            // console.log(outputs[0])
             const url = `https://api.airvisual.com/v2/city?city=${outputs[0].output}&state=${outputs[0].output}&country=Kyrgyzstan&key=${API_KEY}`;
             const quality = fetch(url)
             return quality
@@ -22,3 +22,8 @@ export async function getAirDataByCity(city){
     
     return res.json() 
 }
+export async function getAirDataByIp(){
+    const url = `https://api.airvisual.com/v2/nearest_city?key=${API_KEY}`
+    const res = await fetch(url)
+    return res.json() 
+ }

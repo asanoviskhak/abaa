@@ -1,23 +1,32 @@
 import logo from "./logo.svg";
 import React, { useState } from "react";
-import { getAirDataByCity } from "./api";
+import { getAirDataByCity, getAirDataByIp } from "./api";
 
 function App() {
-  const [city, setCity] = useState(null);
+  const [city, setCity] = useState("");
   const [view, setView] = useState(null);
   const [info, setInfo] = useState({
-    city:null,
+    city:"",
     data:{}
   })
   const handleChange = (event) => {
     setCity(event.target.value);
   };
-  async function handleSubmit(e) {
+  async function handleSubmitByCity(e) {
     e.preventDefault();
     const data = await getAirDataByCity(city);
-    console.log(data);
+    // console.log(data);
     setInfo({
       city: city,
+      data: data
+    });
+    setCity("")
+  }
+  async function handleSubmitByIp(e) {
+    e.preventDefault();
+    const data = await getAirDataByIp();
+    setInfo({
+      city: "Эң жакын шаар",
       data: data
     });
     setCity("")
@@ -60,7 +69,7 @@ function App() {
       </header>
       <section>
         <div className="search">
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmitByCity}>
             <label className="search-label">
               <h4 className="search-label-text">
                 Шаардын атын жазыңыз жана{" "}
@@ -80,6 +89,9 @@ function App() {
               value={city}
             />
           </form>
+          <div>
+            <p className="button ip" onClick={handleSubmitByIp}>IP адрес боюнча издөө </p>
+          </div>
         </div>
       </section>
       <section>
@@ -121,7 +133,7 @@ function App() {
                   <p>Абаа басымы</p>
                 </div>
                 <div className="other-details-values">
-                  <p className="windspeed">{info.data.data.current.weather.ws} Km/h</p>
+                  <p className="windspeed">{info.data.data.current.weather.ws} км/с</p>
                   <p className="humidity">{info.data.data.current.weather.hu} %</p>
                   <p className="pressure">{info.data.data.current.weather.pr} hPa</p>
                 </div>
